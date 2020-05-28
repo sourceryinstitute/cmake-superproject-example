@@ -15,11 +15,13 @@ depicted in the following dependency tree:
 
 ```
 task-scheduler
-|__daglib
+|
+|--daglib
 |  |
-|__yaFyaml
-   |__ gftl
-   |__ gftl-shared
+|--yaFyaml
+   |
+   |-- gftl
+   |-- gftl-shared
 ```
 
 where
