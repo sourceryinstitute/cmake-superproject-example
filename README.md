@@ -16,9 +16,10 @@ depicted in the following dependency tree:
 ```
 task-scheduler
 |__daglib
-    |__yaFyaml
-       |__ gftl
-       |__ gftl-shared
+|  |
+|__yaFyaml
+   |__ gftl
+   |__ gftl-shared
 ```
 
 where

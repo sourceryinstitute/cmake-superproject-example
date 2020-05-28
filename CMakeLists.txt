@@ -29,6 +29,14 @@ ExternalProject_Add(yaFyaml
  DEPENDS gftl gftl_shared
 )
 
+ExternalProject_Add(daglib
+ SOURCE_DIR ${PROJECT_SOURCE_DIR}/git-submodules/daglib
+ INSTALL_DIR ${installDir}
+ CMAKE_ARGS -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>
+            -DCMAKE_PREFIX_PATH:PATH=<INSTALL_DIR>
+ DEPENDS yaFyaml
+)
+
 # Making the src directory an external project ensures that it is
 # configured only after the dependencies are ready.
 ExternalProject_Add(src
