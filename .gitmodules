@@ -13,3 +13,6 @@
 [submodule "git-submodules/gFTL-shared"]
 	path = git-submodules/gFTL-shared
 	url = https://github.com/Goddard-Fortran-Ecosystem/gFTL-shared
+[submodule "git-submodules/daglib"]
+	path = git-submodules/daglib
+	url = git@github.com:sourceryinstitute/daglib
