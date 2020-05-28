@@ -1,0 +1,15 @@
+[submodule "git-submodules/yaFyaml"]
+	path = git-submodules/yaFyaml
+	url = https://github.com/Goddard-Fortran-Ecosystem/yaFyaml
+[submodule "git-submodules/gftl"]
+	path = git-submodules/gftl
+	url = git@github.com:Goddard-Fortran-Ecosystem/gftl
+[submodule "git-submodules/gftl-shared"]
+	path = git-submodules/gftl-shared
+	url = git@github.com:Goddard-Fortran-Ecosystem/gftl-shared
+[submodule "git-submodules/gFTL"]
+	path = git-submodules/gFTL
+	url = https://github.com/Goddard-Fortran-Ecosystem/gFTL
+[submodule "git-submodules/gFTL-shared"]
+	path = git-submodules/gFTL-shared
+	url = https://github.com/Goddard-Fortran-Ecosystem/gFTL-shared
