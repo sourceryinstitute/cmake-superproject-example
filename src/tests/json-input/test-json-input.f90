@@ -10,5 +10,8 @@ program main
    c = p%load(FileStream('input.json'))
    sanity = c%at('science')
 
-   if (sanity) print *,"Test passed"
+   if (.not. sanity) error stop "Test failed"
+
+   sync all
+   if (this_image()==1) print *,"Test passed"
 end program
