@@ -41,7 +41,7 @@ git clone --recursive git@github.com:sourceryinstitute/task-scheduler
 mkdir -p task-scheduler/build
 cd task-scheduler/build
 export FC=gfortran
-cmake .. -DCMAKE_INSTALL_PREFIX=${PWD}/installations
+cmake .. -DCMAKE_INSTALL_PREFIX=${PWD}/install
 make -j 8
 cd src
 ctest
