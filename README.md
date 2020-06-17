@@ -32,24 +32,29 @@ Each of the above packages is its own CMake `project` in a git submdodule
 of task-scheduler.  As such, obtaining a useful copy of the current
 repository requires a recursive git clone as shown below.
 
-Downloading, Building, and Testing
-----------------------------------
+Downloading, Building, Installing, and Testing
+----------------------------------------------
 On Linux, macOS, or Windows Subsystem for Linux, execute the following
-commands inside a `bash` shell or equivalent commands in another shell:
-
+commands inside `bash` or Z shell or equivalent commands in another shell:
 ```bash
 git clone --recursive git@github.com:sourceryinstitute/task-scheduler
 mkdir -p task-scheduler/build
 cd task-scheduler/build
 export FC=gfortran
-cmake ..
-make -j -8
-cd src/tests
+cmake .. -DCMAKE_INSTALL_PREFIX=${PWD}/installations
+make -j 8
+cd src
 ctest
+make install
 ```
+where the `-D` argument may be omitted if the user has the write
+privileges for the default installation path, which might necessitate
+replacing the final line with `sudo make install`.  If any of the
+above steps fails, including if any tests fail, please submit an [issue].
 
 [daglib]: https://github.com/sourceryinstitute/yaFyaml
 [yaFyaml]: https://github.com/Goddard-Fortran-Ecosystem/yaFyaml
 [gftl]: https://github.com/Goddard-Fortran-Ecosystem/gftl
 [gftl-shared]: https://github.com/Goddard-Fortran-Ecosystem/gftl-shared
 [superbuild]: https://blog.kitware.com/cmake-superbuilds-git-submodules
+[issue]: https://github.com/sourceryinstitute/task-scheduler/issues
