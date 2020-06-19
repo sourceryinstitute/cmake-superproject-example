@@ -4,7 +4,7 @@ foreach(test_name
   json-input
 )
   if(barename MATCHES caf)
-    set(launch_command "cafrun -n 2")
+    set(launch_command "cafrun" "-n" "2")
   else()
     set(launch_command "")
   endif()

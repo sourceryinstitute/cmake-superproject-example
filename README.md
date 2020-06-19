@@ -15,18 +15,19 @@ depicted in the following dependency tree:
 
 ```
 task-scheduler
-|__daglib
-    |__yaFyaml
-       |__ gftl
-       |__ gftl-shared
+|--daglib
+|  |
+|--yaFyaml
+   |-- gFTL-shared
+       |-- gFTL
 ```
 
 where
 
 * [daglib] is a directed acyclic graph library,
 * [yaFyaml] is a Fortran YAML API,
-* [gftl] is the Goddard Fortran Template Library, and
-* [gftl-shared] contains common gftl containers of Fortran intrinsic types.
+* [gFTL-shared] contains common gFTL containers of Fortran intrinsic types.
+* [gFTL] is the Goddard Fortran Template Library, and
 
 Each of the above packages is its own CMake `project` in a git submdodule
 of task-scheduler.  As such, obtaining a useful copy of the current
@@ -54,7 +55,7 @@ above steps fails, including if any tests fail, please submit an [issue].
 
 [daglib]: https://github.com/sourceryinstitute/yaFyaml
 [yaFyaml]: https://github.com/Goddard-Fortran-Ecosystem/yaFyaml
-[gftl]: https://github.com/Goddard-Fortran-Ecosystem/gftl
-[gftl-shared]: https://github.com/Goddard-Fortran-Ecosystem/gftl-shared
+[gFTL]: https://github.com/Goddard-Fortran-Ecosystem/gFTL
+[gFTL-shared]: https://github.com/Goddard-Fortran-Ecosystem/gFTL-shared
 [superbuild]: https://blog.kitware.com/cmake-superbuilds-git-submodules
 [issue]: https://github.com/sourceryinstitute/task-scheduler/issues
