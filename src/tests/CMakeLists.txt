@@ -1,5 +1,4 @@
 foreach(test_name
-  json-input
   dependency-tree
 )
   if(barename MATCHES caf)
