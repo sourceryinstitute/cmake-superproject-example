@@ -1,21 +1,12 @@
 program dependency_tree
   !!  Test topological sort and dependency matrix for a DAG with multiple independent nodes.
   use iso_fortran_env, only : error_unit
-  use scheduled_team_module, only : scheduled_team
+  use scheduled_team_interface, only : scheduled_team_t
   implicit none
 
-  type(scheduled_team) squad
+  type(scheduled_team_t) squad
 
-  dependencies = new_dag()
   squad = scheduled_team_t( new_dag() )
-
-  call dependencies%save_digraph('test2.dot','RL',300)
-
-  block
-    character(len=*),parameter :: filetype = 'pdf'  !! filetype for output plot ('pdf', png', etc.)
-
-    call execute_command_line('dot -T'//filetype//' -o test2.'//filetype//' test2.dot')
-  end block
 
   sync all
   if (this_image()==1) print *,"Test passed."
