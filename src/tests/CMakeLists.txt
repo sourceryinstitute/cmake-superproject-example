@@ -1,5 +1,6 @@
 foreach(test_name
   dependency-tree
+  ordered-compute
 )
   if(barename MATCHES caf)
     set(launch_command "cafrun" "-n" "2")
