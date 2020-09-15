@@ -1,7 +1,7 @@
 program dependency_tree
   !!  Test topological sort and dependency matrix for a DAG with multiple independent nodes.
   use iso_fortran_env, only : error_unit
-  use scheduled_team_interface, only : scheduled_team_t
+  use scheduled_team_mod, only : scheduled_team_t
   implicit none
 
   type(scheduled_team_t) squad

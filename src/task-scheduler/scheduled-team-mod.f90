@@ -1,4 +1,4 @@
-module scheduled_team_interface
+module scheduled_team_mod
   use iso_fortran_env, only : team_type
   implicit none
 
@@ -18,4 +18,4 @@ module scheduled_team_interface
     end function
 
   end interface
-end module scheduled_team_interface
+end module scheduled_team_mod

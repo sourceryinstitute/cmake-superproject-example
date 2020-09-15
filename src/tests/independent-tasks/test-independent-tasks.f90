@@ -1,70 +1,12 @@
-! scheduler-algorithm-sketch.f90
-!
-! -- A Parallel team scheduler demonstration program in Fortran 2018:
-!    Image 1 asynchronously gets and prints task_results defined by every image.
-!
-! The program uses event post, query, and wait defined by a  Fortran 2018.
-
-module task_interface
-  implicit none
-
-  private
-
-  integer, parameter :: no_work = 0
-
-  type, public :: task_t
-    private
-    integer :: identifier_ = no_work
-  contains
-    procedure do_work
-  end type
-
-  interface task_t
-    module procedure new_task
-  end interface
-
-  interface
-
-    module function new_task(identifier)
-      implicit none
-      integer, intent(in) :: identifier
-      type(task_t) new_task
-    end function
-
-    module subroutine do_work(this, verbose)
-      implicit none
-      class(task_t), intent(in) :: this
-      logical, intent(in), optional :: verbose
-    end subroutine
-
-  end interface
-
-end module
-
-submodule(task_interface) task_implementation
-  implicit none
-
-contains
-
-  module procedure new_task
-    new_task%identifier_ = identifier
-  end procedure
-
-  module procedure do_work
-    if (present(verbose)) then
-      if (this%identifier_ == no_work) then
-        print *, "Image", this_image(), "does no work"
-      else
-        print *, "Image", this_image(), "does work on task", this%identifier_
-      end if
-    end if
-  end procedure
-
-end submodule
 
 program main
+  !!  Test the distribution and execution of independent tasks:
+  !!  A scheduler image asynchronously puts tasks on the compute images, which
+  !!  complete the task by invoking its do_work type-bound procedure.  Each
+  !!  compute awaits a task, completes the task, and then notifies the scheduler
+  !!  image that the compute image is ready for the next task.
   use iso_fortran_env, only : event_type
-  use task_interface, only : task_t
+  use task_mod, only : task_t
   implicit none
 
   type(event_type) :: task_assignment[*] ! used by scheduler to notify a compute image of an assigned task
@@ -112,14 +54,15 @@ program main
       block
         integer image
 
+        verify_task_completion: &
         do image=1, ni
           if (image /= scheduler_image) event wait(ready_for_next_task(image))
-        end do
+        end do verify_task_completion
       end block
+
       print *,"Test passed."
     end if
 
   end associate
-
 
 end program
