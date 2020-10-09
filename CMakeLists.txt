@@ -30,8 +30,8 @@ ExternalProject_Add(yaFyaml
  DEPENDS gFTL_shared gFTL
 )
 
-ExternalProject_Add(daglib
- SOURCE_DIR ${PROJECT_SOURCE_DIR}/git-submodules/daglib
+ExternalProject_Add(dag
+ SOURCE_DIR ${PROJECT_SOURCE_DIR}/git-submodules/dag
  INSTALL_DIR ${installDir}
  CMAKE_ARGS -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>
             -DCMAKE_PREFIX_PATH:PATH=<INSTALL_DIR>
@@ -43,7 +43,7 @@ ExternalProject_Add(daglib
 ExternalProject_Add(src
   SOURCE_DIR "${PROJECT_SOURCE_DIR}/src"
   BINARY_DIR "${PROJECT_BINARY_DIR}/src"
-  DEPENDS daglib yaFyaml
+  DEPENDS dag yaFyaml
   CMAKE_ARGS -DYAFYAML_ROOT=${installDir} # YAFYAML case matches find_package call in src
              -DCMAKE_PREFIX_PATH:PATH=${installDir}
   INSTALL_COMMAND ""

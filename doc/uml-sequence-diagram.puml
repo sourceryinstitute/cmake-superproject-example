@@ -1,0 +1,32 @@
+@startuml
+Title UML Sequence Diagram for Asynchronous Task Scheduling
+
+Actor scheduler
+Actor compute1
+Actor ...
+Actor computeN
+
+par
+
+loop over all compute images
+scheduler -> compute1 : task_assign/notify
+scheduler -> ... : task_assign/notify
+scheduler -> computeN : task_assign/notify
+end
+
+loop while any unassigned tasks
+compute1 -> scheduler : ready_for_task
+computeN -> scheduler : ready_for_task
+... -> scheduler : ready_for_task
+
+
+
+end
+
+
+
+
+
+
+
+@enduml
