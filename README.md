@@ -15,7 +15,7 @@ depicted in the following dependency tree:
 
 ```
 task-scheduler
-|--daglib
+|--dag
 |  |
 |--yaFyaml
    |-- gFTL-shared
@@ -53,7 +53,7 @@ privileges for the default installation path, which might necessitate
 replacing the final line with `sudo make install`.  If any of the
 above steps fails, including if any tests fail, please submit an [issue].
 
-[daglib]: https://github.com/sourceryinstitute/yaFyaml
+[dag]: https://github.com/sourceryinstitute/dag
 [yaFyaml]: https://github.com/Goddard-Fortran-Ecosystem/yaFyaml
 [gFTL]: https://github.com/Goddard-Fortran-Ecosystem/gFTL
 [gFTL-shared]: https://github.com/Goddard-Fortran-Ecosystem/gFTL-shared
