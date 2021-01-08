@@ -16,8 +16,13 @@ end
 
 loop while any unassigned tasks
 compute1 -> scheduler : ready_for_task
+scheduler -> compute1 : task_assign/notify
 computeN -> scheduler : ready_for_task
+scheduler -> computeN : task_assign/notify
+
 ... -> scheduler : ready_for_task
+scheduler -> ... : task_assign/notify
+
 
 
 
