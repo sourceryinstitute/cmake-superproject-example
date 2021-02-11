@@ -1,3 +1,10 @@
+We're going to start from scratch and pull a few things from this 
+repository into a new one under the name Framework for Extensible
+Asynchronous Task Scheduling (FEATS).  We are preserving this
+repository just as an example of a CMake superbuild of the
+current dependency projects, most of which will not be used in FEATS.
+
+
 Task Scheduler
 ==============
 
